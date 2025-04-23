@@ -81,13 +81,6 @@ git push origin feat-your-feature
 - `chore: clean up unused components`  
 - `docs: update project usage instructions`  
 
----
-
-## 📚 Docs  
-- [Frontend README](https://github.com/CraftNest/Survexa/blob/main/client/README.md)  
-- [Contracts README](https://github.com/CraftNest/Survexa/blob/main/contracts/README.md)
-
----
 
 ## 🌍 Join the Movement  
 Survexa empowers data-sharing with **privacy**, **fair rewards**, and **community governance**. Whether you're a developer, researcher, or data enthusiast — there's a place for you here.  
