@@ -1,7 +1,4 @@
 
-
-```markdown
-
 # 🧠 Survexa — Decentralized Survey Platform on StarkNet  
 
 **Survexa** is a decentralized survey platform built on **StarkNet** that rewards users for sharing opinions while preserving privacy with **zero-knowledge proofs (ZKPs)**. Survey creators can launch custom surveys by staking tokens, while users earn rewards in a **fair, spam-resistant**, and **DAO-governed** environment.
