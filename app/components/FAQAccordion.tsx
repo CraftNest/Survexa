@@ -1,37 +1,37 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
+import { useState } from "react";
 
 const faqItems = [
   {
-    question: 'What is this Survexa about?',
+    question: "What is this Survexa about?",
     answer:
-      'Our platform connects businesses and researchers with real users who provide valuable feedback through surveys. In return, users are rewarded in cryptocurrency on Starknet.',
+      "Our platform connects businesses and researchers with real users who provide valuable feedback through surveys. In return, users are rewarded in cryptocurrency on Starknet.",
   },
   {
-    question: 'How do I receive my payments?',
+    question: "How do I receive my payments?",
     answer:
-      'Payments are sent directly to your linked Starknet crypto wallet once you complete surveys and reach the minimum payout threshold.',
+      "Payments are sent directly to your linked Starknet crypto wallet once you complete surveys and reach the minimum payout threshold.",
   },
   {
-    question: 'Do I need a crypto wallet to join?',
+    question: "Do I need a crypto wallet to join?",
     answer:
-      'Yes, a crypto wallet compatible with Starknet is required to receive your rewards.',
+      "Yes, a crypto wallet compatible with Starknet is required to receive your rewards.",
   },
   {
-    question: 'How much can I earn per survey?',
+    question: "How much can I earn per survey?",
     answer:
-      'Earnings vary depending on the survey length and complexity, but typically range from $1 to $10 in crypto rewards.',
+      "Earnings vary depending on the survey length and complexity, but typically range from $1 to $10 in crypto rewards.",
   },
   {
-    question: 'Is my information safe?',
+    question: "Is my information safe?",
     answer:
-      'Absolutely. We take privacy seriously and use secure protocols to protect your data at all times.',
+      "Absolutely. We take privacy seriously and use secure protocols to protect your data at all times.",
   },
   {
-    question: 'How does it work?',
+    question: "How does it work?",
     answer:
-      'You take surveys, provide honest feedback, and get rewarded in cryptocurrency directly in your wallet.',
+      "You take surveys, provide honest feedback, and get rewarded in cryptocurrency directly in your wallet.",
   },
 ];
 
@@ -74,7 +74,7 @@ export default function FAQAccordion() {
                 <span className="font-semibold">{item.question}</span>
                 <svg
                   className={`w-6 h-6 ml-2 transition-transform duration-300 ${
-                    isOpen ? 'rotate-180' : 'rotate-0'
+                    isOpen ? "rotate-180" : "rotate-0"
                   }`}
                   fill="none"
                   stroke="currentColor"
@@ -83,7 +83,11 @@ export default function FAQAccordion() {
                   xmlns="http://www.w3.org/2000/svg"
                   aria-hidden="true"
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M19 9l-7 7-7-7"
+                  />
                 </svg>
               </button>
               <div
@@ -91,9 +95,9 @@ export default function FAQAccordion() {
                 role="region"
                 aria-labelledby={`faq-header-${index}`}
                 className={`px-4 pb-6 pt-0 overflow-hidden transition-[max-height] duration-300 ${
-                  isOpen ? 'max-h-[1500px]' : 'max-h-0'
+                  isOpen ? "max-h-[1500px]" : "max-h-0"
                 }`}
-                style={{ maxHeight: isOpen ? '1500px' : '0' }}
+                style={{ maxHeight: isOpen ? "1500px" : "0" }}
               >
                 <p className="text-gray-300">{item.answer}</p>
               </div>
