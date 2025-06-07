@@ -4,6 +4,7 @@ import { Button } from "@/src/components/ui/button";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 const benefits = [
   {
@@ -123,7 +124,7 @@ const arrowVariants = {
 
 export const ValuePropositionSection = () => {
   return (
-    <motion.div
+    <motion.section
       className="pt-16 md:pt-18 lg:pt-20 xl:pt-24 max-w-[1094px] w-full mx-auto px-4 sm:px-6 lg:px-8"
       style={{
         backgroundImage: "url('/proposition-bg.svg')",
@@ -195,18 +196,20 @@ export const ValuePropositionSection = () => {
           whileHover="hover"
           whileTap="tap"
         >
-          <Button
-            variant="outline"
-            size="sm"
-            className="text-white font-bold text-sm sm:text-base px-4 sm:px-6 min-h-[44px] sm:min-h-[48px] min-w-[180px] sm:min-w-[198px] rounded-[12px] bg-[rgba(255,255,255,0.06)] w-fit cursor-pointer transition-all duration-300 hover:bg-white/10 hover:text-white border-none backdrop-blur-sm hover:shadow-lg hover:shadow-white/10 flex items-center gap-2"
-          >
-            <span>Add a Survey now!</span>
-            <motion.div variants={arrowVariants}>
-              <ArrowRight className="h-4 w-4" />
-            </motion.div>
-          </Button>
+          <Link href={"/"}>
+            <Button
+              variant="outline"
+              size="sm"
+              className="text-white font-bold text-sm sm:text-base px-4 sm:px-6 min-h-[44px] sm:min-h-[48px] min-w-[180px] sm:min-w-[198px] rounded-[12px] bg-[rgba(255,255,255,0.06)] w-fit cursor-pointer transition-all duration-300 hover:bg-white/10 hover:text-white border-none backdrop-blur-sm hover:shadow-lg hover:shadow-white/10 flex items-center gap-2"
+            >
+              <span>Add a Survey now!</span>
+              <motion.div variants={arrowVariants}>
+                <ArrowRight className="h-4 w-4" />
+              </motion.div>
+            </Button>
+          </Link>
         </motion.div>
       </div>
-    </motion.div>
+    </motion.section>
   );
 };
