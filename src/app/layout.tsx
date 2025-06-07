@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 const manrope = Manrope({
-  variable: "--font-jakarta",
+  variable: "--font-manrope",
   subsets: ["latin"],
 });
 
@@ -30,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={manrope.variable}>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased font-manrope`}
       >
         {children}
       </body>
