@@ -85,7 +85,7 @@ export const StepCard = ({ step, index }: StepCardProps) => {
   return (
     <motion.div
       className={`relative w-full rounded-[12px] min-h-[400px] sm:min-h-[466px] text-white cursor-pointer overflow-hidden transition-all duration-400 ease-in-out ${
-        isHovered ? "md:max-w-[370px]" : "md:max-w-[320px]"
+        isHovered ? "md:max-w-[370px]" : "md:max-w-[256px]"
       }`}
       style={{
         backgroundImage: `linear-gradient(0deg, rgba(17, 14, 19, 0.8) 0%, rgba(17, 14, 19, 0.8) 100%), url('${step.image}')`,

@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 const steps = [
   {
     id: "1",
-    image: "/",
+    image: "/step-1.jpg",
     title: "Browse the Category",
     description:
       "Explore topics that matter to you and discover surveys tailored to your interests.",
@@ -14,7 +14,7 @@ const steps = [
   },
   {
     id: "2",
-    image: "/",
+    image: "/step-2.jpg",
     title: "Carry out a Survey",
     description:
       "Share your thoughts by answering quick surveys and help shape ideas, products, and decisions.",
@@ -22,7 +22,7 @@ const steps = [
   },
   {
     id: "3",
-    image: "/",
+    image: "/step-3.jpg",
     title: "Receive Reward",
     description:
       "Earn StarkNet tokens by completing surveys, turning your opinions into real value.",
