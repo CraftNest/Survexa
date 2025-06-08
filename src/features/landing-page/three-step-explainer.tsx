@@ -68,7 +68,7 @@ export const ThreeStepExplainerSection = () => {
       <div
         className="absolute -top-[10%] left-1/2 transform -translate-x-1/2 -translate-y-1/4 w-full h-full pointer-events-none"
         style={{
-          backgroundImage: "url('/proposition-bg.svg')",
+          backgroundImage: "url('/bg-gradient.svg')",
           backgroundSize: "contain",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
@@ -78,7 +78,7 @@ export const ThreeStepExplainerSection = () => {
       <div
         className="absolute -left-[10%] top-[70%] transform -translate-y-1/2 -translate-x-1/4 w-full h-full pointer-events-none"
         style={{
-          backgroundImage: "url('/proposition-bg.svg')",
+          backgroundImage: "url('/bg-gradient.svg')",
           backgroundSize: "contain",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
