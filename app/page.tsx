@@ -1,11 +1,9 @@
-import FAQAccordion from "./components/FAQAccordion";
-import CTASection from "./components/CTASection";
+import FAQSection from "./components/FAQSection";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gray-900 py-12 px-4">
-      <FAQAccordion />
-      <CTASection />
+    <main className="min-h-screen bg-zinc-950 text-white px-4 md:px-8">
+      <FAQSection />
     </main>
   );
 }
