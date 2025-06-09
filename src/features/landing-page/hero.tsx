@@ -57,7 +57,7 @@ const CountingNumbers = ({
 export default function Hero() {
   const statsRef = useRef(null);
   const statsIsInView = useInView(statsRef, { once: true });
-//   const mainControls = useAnimation();
+  //   const mainControls = useAnimation();
 
   const scrollContainerRef = useRef<HTMLDivElement>(null); // Ref for the scrollable card container
   const [canScrollLeft, setCanScrollLeft] = useState(false);
@@ -76,7 +76,7 @@ export default function Hero() {
       const { scrollLeft, scrollWidth, clientWidth } =
         scrollContainerRef.current;
 
-      console.log('Scroll Check:', { scrollLeft, clientWidth, scrollWidth });
+      console.log("Scroll Check:", { scrollLeft, clientWidth, scrollWidth });
 
       setCanScrollLeft(scrollLeft > 0);
       // Add a small buffer (1px) to handle sub-pixel rendering issues
@@ -89,15 +89,15 @@ export default function Hero() {
     const currentRef = scrollContainerRef.current;
     if (currentRef) {
       currentRef.addEventListener("scroll", checkScrollability);
-      
+
       // Use ResizeObserver to detect when content is loaded and check scrollability
       const resizeObserver = new ResizeObserver(() => {
         // Small delay to ensure DOM is updated
         setTimeout(checkScrollability, 10);
       });
-      
+
       resizeObserver.observe(currentRef);
-      
+
       // Initial check with multiple attempts to ensure content is loaded
       const checkMultipleTimes = () => {
         checkScrollability();
@@ -105,7 +105,7 @@ export default function Hero() {
         setTimeout(checkScrollability, 300);
         setTimeout(checkScrollability, 500);
       };
-      
+
       checkMultipleTimes();
 
       return () => {
@@ -125,15 +125,15 @@ export default function Hero() {
       if (direction === "left") {
         scrollContainerRef.current.scrollTo({
           left: currentScrollLeft - scrollAmount,
-          behavior: "smooth"
+          behavior: "smooth",
         });
       } else {
         scrollContainerRef.current.scrollTo({
           left: currentScrollLeft + scrollAmount,
-          behavior: "smooth"
+          behavior: "smooth",
         });
       }
-      
+
       // Check scrollability after animation completes
       setTimeout(checkScrollability, 300);
     }
@@ -252,16 +252,16 @@ export default function Hero() {
           <button
             onClick={() => scrollCards("left")}
             className={`p-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 shadow-lg z-10 text-white hover:bg-white/20 transition-all duration-200 ${
-              canScrollLeft 
-                ? 'opacity-100 cursor-pointer' 
-                : 'opacity-40 cursor-not-allowed'
+              canScrollLeft
+                ? "opacity-100 cursor-pointer"
+                : "opacity-40 cursor-not-allowed"
             }`}
             disabled={!canScrollLeft}
             aria-label="Scroll left"
           >
             <ChevronLeft size={24} />
           </button>
-          
+
           {/* Cards Container */}
           <div
             className="flex overflow-x-hidden gap-6 scroll-smooth flex-1 w-[350px] xl:w-[500px] snap-x snap-mandatory"
@@ -303,14 +303,14 @@ export default function Hero() {
               className="shrink-0 snap-center"
             />
           </div>
-          
+
           {/* Right Arrow Button */}
           <button
             onClick={() => scrollCards("right")}
             className={`p-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 shadow-lg z-10 text-white hover:bg-white/20 transition-all duration-200 ${
-              canScrollRight 
-                ? 'opacity-100 cursor-pointer' 
-                : 'opacity-40 cursor-not-allowed'
+              canScrollRight
+                ? "opacity-100 cursor-pointer"
+                : "opacity-40 cursor-not-allowed"
             }`}
             disabled={!canScrollRight}
             aria-label="Scroll right"
@@ -330,9 +330,7 @@ export default function Hero() {
             Scroll <ArrowRight size={17} />
           </p>
 
-          <div
-            className="flex overflow-x-auto gap-8 px-4 no-scrollbar scroll-smooth snap-x snap-mandatory w-full"
-          >
+          <div className="flex overflow-x-auto gap-8 px-4 no-scrollbar scroll-smooth snap-x snap-mandatory w-full">
             {/* Cards for mobile view */}
             <Card
               title="Web3 User Experience Research"

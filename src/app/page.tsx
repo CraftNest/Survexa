@@ -6,8 +6,8 @@ export default function Home() {
   return (
     <main className="mx-auto w-full bg-[#121014]">
       <SmoothScrollWrapper>
-      <Hero />
-      <ValuePropositionSection />
+        <Hero />
+        <ValuePropositionSection />
       </SmoothScrollWrapper>
     </main>
   );
