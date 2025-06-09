@@ -125,7 +125,7 @@ const arrowVariants = {
 export const ValuePropositionSection = () => {
   return (
     <motion.section
-      className="pt-16 md:pt-18 lg:pt-20 xl:pt-24 max-w-[1094px] w-full mx-auto px-4 sm:px-6 lg:px-8"
+      className="pt-16 md:pt-18 lg:pt-20 xl:pt-24 w-full mx-auto px-4 sm:px-6 lg:px-8"
       style={{
         backgroundImage: "url('/proposition-bg.svg')",
         backgroundSize: "cover",
@@ -137,9 +137,9 @@ export const ValuePropositionSection = () => {
       viewport={{ once: true, amount: 0.3 }}
       variants={containerVariants}
     >
-      <div className="flex flex-col gap-12 sm:gap-14 md:gap-16 lg:gap-20">
+      <div className="flex flex-col gap-12 sm:gap-14 md:gap-16 lg:gap-20 h-screen">
         <motion.div
-          className="max-w-[827px] w-full mx-auto text-center flex flex-col gap-4 sm:gap-5 lg:gap-6"
+          className="w-full mx-auto text-center flex flex-col gap-4 sm:gap-5 lg:gap-6"
           variants={itemVariants}
         >
           <motion.h1

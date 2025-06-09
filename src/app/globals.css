@@ -1,3 +1,6 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -78,6 +81,12 @@
   --sidebar-ring: oklch(0.708 0 0);
 }
 
+@theme {
+  --font-playfair: 'Playfair Display', serif;
+  --font-geist: 'Geist', sans-serif;
+  --font-manrope: 'Manrope', sans-serif;
+}
+
 .dark {
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
@@ -116,6 +125,10 @@
   * {
     @apply border-border outline-ring/50;
   }
+ html, body{
+  @apply overflow-x-hidden;
+ }
+
   body {
     @apply bg-background text-foreground;
   }
@@ -123,4 +136,13 @@
 
 .font-manrope {
   font-family: var(--font-manrope);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Opera */
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none; /* For Internet Explorer and Edge */
+  scrollbar-width: none; /* For Firefox */
 }
