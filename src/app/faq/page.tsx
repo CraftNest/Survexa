@@ -52,7 +52,11 @@ const FAQPage = () => {
           <p className="text-lg text-gray-300 mb-8 text-center">
             Covers all the popular inquires you may have
           </p>
-          <div className="space-y-4" role="region" aria-labelledby="faq-heading">
+          <div
+            className="space-y-4"
+            role="region"
+            aria-labelledby="faq-heading"
+          >
             {faqs.map((faq, idx) => (
               <div key={faq.question}>
                 <button
