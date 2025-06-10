@@ -10,6 +10,7 @@ const navLinks = [
   { name: "Client", url: "#" },
   { name: "About", url: "#" },
   { name: "Contact us", url: "#" },
+  { name: "FAQ", url: "/faq" },
 ];
 
 export default function Navbar() {
@@ -22,7 +23,7 @@ export default function Navbar() {
     <nav className="flex justify-between">
       <div className="flex items-center md:gap-6 lg:gap-[40px] max-sm:hidden md:pl-6 lg:pl-[80px] xl:pl-[104px]">
         <Link href={"/"}>
-          <Image src={"/logo.svg"} width={200} height={200} alt="logo" />
+          <Image src={"/navbar/logo.svg"} width={200} height={200} alt="logo" />
         </Link>
         {navLinks.map((link) => (
           <ul key={link.name}>
@@ -40,7 +41,7 @@ export default function Navbar() {
 
       <div className="hidden max-sm:flex justify-between items-center w-full">
         <Link href={"/"}>
-          <Image src={"/logo.svg"} width={200} height={200} alt="logo" />
+          <Image src={"/navbar/logo.svg"} width={200} height={200} alt="logo" />
         </Link>
         <button
           className="sm:hidden  z-50"

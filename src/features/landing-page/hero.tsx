@@ -243,15 +243,15 @@ export default function Hero() {
 
         {/* Card Section with Scroll Buttons (Desktop View) */}
         <motion.div
-          className="max-sm:hidden md:w-[600px] flex justify-center items-center gap-4"
-          initial={{ opacity: 0 }}
+          className="max-sm:hidden md:w-[600px] flex justify-center items-center gap-4 group"
+          initial={{ opacity: 0 }}               
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.7 }}
         >
           {/* Left Arrow Button */}
           <button
             onClick={() => scrollCards("left")}
-            className={`p-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 shadow-lg z-10 text-white hover:bg-white/20 transition-all duration-200 ${
+            className={`p-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 shadow-lg z-10 text-white hover:bg-white/20 transition-all duration-200 ease-in-out hidden group-hover:block   ${
               canScrollLeft
                 ? "opacity-100 cursor-pointer"
                 : "opacity-40 cursor-not-allowed"
@@ -307,7 +307,7 @@ export default function Hero() {
           {/* Right Arrow Button */}
           <button
             onClick={() => scrollCards("right")}
-            className={`p-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 shadow-lg z-10 text-white hover:bg-white/20 transition-all duration-200 ${
+            className={`p-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 shadow-lg z-10 text-white hover:bg-white/20 transition-all duration-300 ease-in-out hidden group-hover:block  ${
               canScrollRight
                 ? "opacity-100 cursor-pointer"
                 : "opacity-40 cursor-not-allowed"
