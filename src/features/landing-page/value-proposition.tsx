@@ -142,7 +142,7 @@ export const ValuePropositionSection = () => {
       />
       <div className="flex flex-col gap-12 sm:gap-14 md:gap-16 lg:gap-20">
         <motion.div
-          className="max-w-[827px] w-full mx-auto text-center flex flex-col gap-4 sm:gap-5 lg:gap-6"
+          className="w-full mx-auto text-center flex flex-col gap-4 sm:gap-5 lg:gap-6"
           variants={itemVariants}
         >
           <motion.h1
