@@ -244,7 +244,7 @@ export default function Hero() {
         {/* Card Section with Scroll Buttons (Desktop View) */}
         <motion.div
           className="max-sm:hidden md:w-[600px] flex justify-center items-center gap-4 group"
-          initial={{ opacity: 0 }}               
+          initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.7 }}
         >
