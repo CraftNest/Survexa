@@ -81,6 +81,10 @@ const Navbar = () => {
       label: "Contact us",
       href: "/contact",
     },
+    {
+      label: "FAQ", // <-- Add this
+      href: "/faq",
+    },
   ];
 
   return (
