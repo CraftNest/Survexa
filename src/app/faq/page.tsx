@@ -1,159 +1,97 @@
 "use client";
-import React, { useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
+
+import { useState } from "react";
+import { ChevronDown, ChevronUp } from "lucide-react";
 
 const faqs = [
   {
-    question: "What is this survexa about?",
+    question: "What is Survexa?",
     answer:
-      "Our platform connects businesses and researchers with real users who provide valuable feedback through surveys. In return, users are rewarded in cryptocurrency on Starknet.",
+      "Survexa is a decentralized survey platform built on Starknet that allows users to participate in surveys and earn STRK tokens for their valuable opinions and insights.",
   },
   {
-    question: "How do I receive my payments?",
+    question: "How do I earn STRK tokens?",
     answer:
-      "Payments are sent directly to your connected crypto wallet after survey completion.",
+      "You can earn STRK tokens by participating in surveys on our platform. Each survey has a specific reward amount that you'll receive upon completion.",
   },
   {
-    question: "Do I need a crypto wallet to join?",
+    question: "Is my data secure?",
     answer:
-      "Yes, you need a Starknet-compatible crypto wallet to receive rewards.",
+      "Yes, your data is secure. We use blockchain technology to ensure transparency and security. Your personal information is never shared without your consent.",
   },
   {
-    question: "How much can I earn per survey?",
+    question: "How long does it take to complete a survey?",
     answer:
-      "Earnings vary per survey, depending on length and complexity. Each survey will display its reward before you start.",
+      "Survey completion times vary depending on the survey type and length. Most surveys take between 5-15 minutes to complete.",
   },
   {
-    question: "Is my information safe?",
+    question: "When will I receive my rewards?",
     answer:
-      "We take privacy seriously. Your data is encrypted and never shared without your consent.",
+      "Rewards are typically distributed within 24-48 hours after survey completion and verification.",
   },
   {
-    question: "How does it work?",
+    question: "Can I create my own surveys?",
     answer:
-      "Sign up, connect your wallet, and start taking surveys. Complete surveys to earn crypto rewards.",
+      "Yes! Survexa allows you to create custom surveys for your research needs. You can set your own reward amounts and target specific audiences.",
   },
 ];
 
-const FAQPage = () => {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+export default function FAQPage() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-  const handleAccordion = (idx: number) => {
-    setOpenIndex(idx === openIndex ? null : idx);
+  const toggleFAQ = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index);
   };
 
   return (
-    <main className="min-h-screen bg-[#0D0D0D] text-white flex flex-col">
-      <div className="border-2 border-[#9011FF] rounded-2xl max-w-5xl mx-auto my-8 shadow-lg overflow-hidden bg-[#18171C]">
-        {/* FAQ Section */}
-        <section className="max-w-2xl mx-auto w-full py-12 px-4">
-          <h1 className="text-4xl font-bold mb-2 text-center">FAQ</h1>
-          <p className="text-lg text-gray-300 mb-8 text-center">
-            Covers all the popular inquires you may have
+    <div className="min-h-screen bg-bg-faq-main text-white">
+      <div className="max-w-4xl mx-auto px-4 py-16">
+        <div className="text-center mb-12">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            Frequently Asked Questions
+          </h1>
+          <p className="text-text-gray text-lg">
+            Find answers to common questions about Survexa
           </p>
-          <div
-            className="space-y-4"
-            role="region"
-            aria-labelledby="faq-heading"
-          >
-            {faqs.map((faq, idx) => (
-              <div key={faq.question}>
-                <button
-                  className={`w-full flex justify-between items-center px-5 py-4 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#9011FF] ${
-                    openIndex === idx
-                      ? "bg-[#1A1A1A] text-[#9011FF]"
-                      : "bg-[#18171C] hover:bg-[#23212b]"
-                  }`}
-                  aria-expanded={openIndex === idx}
-                  aria-controls={`faq-panel-${idx}`}
-                  id={`faq-header-${idx}`}
-                  onClick={() => handleAccordion(idx)}
-                >
-                  <span className="text-base font-semibold text-left">
-                    {faq.question}
-                  </span>
-                  <svg
-                    className={`w-5 h-5 ml-4 transition-transform duration-200 ${
-                      openIndex === idx ? "rotate-180" : ""
-                    }`}
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M19 9l-7 7-7-7"
-                    />
-                  </svg>
-                </button>
-                <div
-                  id={`faq-panel-${idx}`}
-                  role="region"
-                  aria-labelledby={`faq-header-${idx}`}
-                  className={`overflow-hidden transition-all duration-300 ${
-                    openIndex === idx
-                      ? "max-h-40 opacity-100 py-3 px-5"
-                      : "max-h-0 opacity-0 py-0 px-5"
-                  }`}
-                >
-                  <p className="text-gray-300">{faq.answer}</p>
+        </div>
+
+        <div className="space-y-4">
+          {faqs.map((faq, index) => (
+            <div
+              key={index}
+              className="bg-bg-faq-hover rounded-lg overflow-hidden transition-all duration-300 hover:bg-bg-faq-hover-alt"
+            >
+              <button
+                onClick={() => toggleFAQ(index)}
+                className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-bg-faq-hover-alt transition-colors duration-200"
+              >
+                <span className="font-semibold text-lg">{faq.question}</span>
+                {openIndex === index ? (
+                  <ChevronUp className="w-5 h-5 text-primary-purple" />
+                ) : (
+                  <ChevronDown className="w-5 h-5 text-primary-purple" />
+                )}
+              </button>
+              {openIndex === index && (
+                <div className="px-6 pb-4">
+                  <p className="text-text-gray leading-relaxed">{faq.answer}</p>
                 </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* CTA Section */}
-        <section
-          className="relative flex flex-col items-center justify-center flex-1 py-16 px-4 mt-8 overflow-hidden"
-          style={{
-            background:
-              "linear-gradient(rgba(13,13,13,0.85),rgba(13,13,13,0.85)), url('/faq-bg.jpg') center/cover no-repeat",
-          }}
-        >
-          {/* Image as background layer */}
-          <Image
-            src="/step-1.jpg"
-            alt="FAQ background"
-            fill
-            className="absolute inset-0 w-full h-full object-cover z-0"
-            style={{ objectFit: "cover" }}
-            priority
-          />
-          {/* Overlay */}
-          <div
-            className="absolute inset-0 bg-black/60 z-10 pointer-events-none"
-            aria-hidden="true"
-          />
-          {/* CTA Content */}
-          <div className="relative z-20 text-center max-w-xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-2">
-              Take your 1st Survey!
-            </h2>
-            <p className="text-lg text-gray-200 mb-8">Less than 5mins</p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/participant"
-                className="bg-[#9011FF] hover:bg-[#B159FF] text-white font-bold px-8 py-3 rounded-lg shadow-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#9011FF] text-base"
-              >
-                Take a Survey
-              </Link>
-              <Link
-                href="/client"
-                className="border border-[#9011FF] text-[#9011FF] hover:bg-[#9011FF] hover:text-white font-bold px-8 py-3 rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#9011FF] text-base"
-              >
-                Explore Survey &rarr;
-              </Link>
+              )}
             </div>
-          </div>
-        </section>
-      </div>
-    </main>
-  );
-};
+          ))}
+        </div>
 
-export default FAQPage;
+        <div className="mt-12 text-center">
+          <h2 className="text-2xl font-bold mb-4">Still have questions?</h2>
+          <p className="text-text-gray mb-6">
+            Can&apos;t find what you&apos;re looking for? Get in touch with our
+            support team.
+          </p>
+          <button className="bg-primary-purple hover:bg-primary-purple-light text-white px-8 py-3 rounded-lg font-semibold transition-colors duration-200">
+            Contact Support
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}

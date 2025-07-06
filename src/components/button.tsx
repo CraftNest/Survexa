@@ -7,7 +7,7 @@ interface ButtonProps {
 export default function Button({ text, className, onClick }: ButtonProps) {
   return (
     <button
-      className={`bg-[#9011FF] max-sm:w-[200px] inset-ring-1 inset-ring-[#B159FF] text-white py-4 px-6 rounded-[12px] font-[700] text-[16px] cursor-pointer ${className}`}
+      className={`bg-primary-purple max-sm:w-[12.5rem] inset-ring-1 inset-ring-primary-purple-light text-white py-4 px-6 rounded-xl font-bold text-base cursor-pointer ${className}`}
       onClick={onClick}
     >
       {text}

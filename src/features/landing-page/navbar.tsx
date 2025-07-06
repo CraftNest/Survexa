@@ -2,7 +2,7 @@
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useEffect, useState, useRef, useCallback } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 
 const Navbar = () => {
   const [isSticky, setIsSticky] = useState(false);
@@ -93,13 +93,13 @@ const Navbar = () => {
         isSticky && !isMenuOpen
           ? "bg-black/30 backdrop-blur-sm "
           : isSticky && isMenuOpen
-            ? " bg-[#121014] md:bg-transparent backdrop-blur-sm"
+            ? " bg-bg-dark md:bg-transparent backdrop-blur-sm"
             : "bg-transparent"
       } `}
     >
       {/* Desktop Menu */}
       <div className="flex items-center w-full px-6 md:px-24 py-4 md:py-5">
-        <div className="mr-8 md:border-r border-[#84619B] pr-8">
+        <div className="mr-8 md:border-r border-border-purple pr-8">
           <Link href="/">
             <Image
               src="/logo.svg"
@@ -115,7 +115,7 @@ const Navbar = () => {
             <Link
               key={link.label}
               href={link.href}
-              className="font-bold text-sm relative after:absolute after:bottom-[-4px] after:left-1/2 after:h-[2px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:left-0 hover:after:w-full"
+              className="font-bold text-sm relative after:absolute after:bottom-[-0.25rem] after:left-1/2 after:h-[0.125rem] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:left-0 hover:after:w-full"
             >
               {link.label}
             </Link>
@@ -125,7 +125,7 @@ const Navbar = () => {
           <div
             role="button"
             tabIndex={0}
-            className="rounded-lg bg-[#9011FF] px-5 py-2 cursor-pointer border border-[#B159FF] hover:scale-110 transition-all duration-300 active:scale-95 shadow-[inset_0_2px_8px_0_rgba(0,0,0,0.25)] hover:shadow-[inset_0_2px_16px_0_rgba(0,0,0,0.1)] hover:drop-shadow-[0_0_10px_rgba(144,17,255,0.5)]"
+            className="rounded-lg bg-primary-purple px-5 py-2 cursor-pointer border border-primary-purple-light hover:scale-110 transition-all duration-300 active:scale-95 shadow-[inset_0_0.125rem_0.5rem_0_rgba(0,0,0,0.25)] hover:shadow-[inset_0_0.125rem_1rem_0_rgba(0,0,0,0.1)] hover:drop-shadow-[0_0_0.625rem_rgba(144,17,255,0.5)]"
             onClick={() => setIsConnectOpen(!isConnectOpen)}
             onKeyDown={handleConnectKeyPress}
             aria-expanded={isConnectOpen}
@@ -153,7 +153,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden absolute top-14 left-0 w-full h-[100dvh] bg-[#121014]   transform transition-all duration-300 ease-in-out translate-x-0 opacity-100 ${isMenuOpen ? "translate-y-0 " : "-translate-y-[120%]"}`}
+        className={`md:hidden absolute top-14 left-0 w-full h-[100dvh] bg-bg-dark   transform transition-all duration-300 ease-in-out translate-x-0 opacity-100 ${isMenuOpen ? "translate-y-0 " : "-translate-y-[120%]"}`}
         role="navigation"
         aria-label="Mobile menu"
         aria-hidden={!isMenuOpen}
@@ -170,7 +170,7 @@ const Navbar = () => {
           ))}
           <div
             onClick={() => setIsConnectOpen(!isConnectOpen)}
-            className="mt-5 w-full rounded-lg bg-[#9011FF] px-5 py-2 cursor-pointer border border-[#B159FF] hover:scale-105 transition-all duration-300 active:scale-95 shadow-[inset_0_2px_8px_0_rgba(0,0,0,0.25)] hover:shadow-[inset_0_2px_16px_0_rgba(0,0,0,0.1)] text-center"
+            className="mt-5 w-full rounded-lg bg-primary-purple px-5 py-2 cursor-pointer border border-primary-purple-light hover:scale-105 transition-all duration-300 active:scale-95 shadow-[inset_0_0.125rem_0.5rem_0_rgba(0,0,0,0.25)] hover:shadow-[inset_0_0.125rem_1rem_0_rgba(0,0,0,0.1)] text-center"
             role="button"
             tabIndex={0}
             onKeyDown={handleConnectKeyPress}
@@ -192,7 +192,7 @@ const Navbar = () => {
             role="dialog"
             aria-modal="true"
             aria-labelledby="modal-title"
-            className="w-full  md:max-w-md bg-[#0D0D0D] rounded-xl p-4 min-h-[200px]"
+            className="w-full  md:max-w-md bg-bg-darker rounded-xl p-4 min-h-[12.5rem]"
             tabIndex={-1}
           >
             <h2

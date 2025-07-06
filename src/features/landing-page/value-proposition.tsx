@@ -1,8 +1,7 @@
 "use client";
 
-import { Button } from "@/src/components/ui/button";
-import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import Button from "@/components/button";
+import { motion, type Variants } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -21,7 +20,7 @@ const benefits = [
   },
 ];
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -32,7 +31,7 @@ const containerVariants = {
   },
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: {
     opacity: 0,
     y: 50,
@@ -49,7 +48,7 @@ const itemVariants = {
   },
 };
 
-const benefitVariants = {
+const benefitVariants: Variants = {
   hidden: {
     opacity: 0,
     y: 30,
@@ -74,7 +73,7 @@ const benefitVariants = {
   },
 };
 
-const buttonVariants = {
+const buttonVariants: Variants = {
   hidden: {
     opacity: 0,
     scale: 0.8,
@@ -102,7 +101,7 @@ const buttonVariants = {
   },
 };
 
-const iconVariants = {
+const iconVariants: Variants = {
   hover: {
     scale: 1.1,
     transition: {
@@ -112,20 +111,10 @@ const iconVariants = {
   },
 };
 
-const arrowVariants = {
-  hover: {
-    x: 5,
-    transition: {
-      duration: 0.3,
-      ease: "easeInOut",
-    },
-  },
-};
-
 export const ValuePropositionSection = () => {
   return (
     <motion.section
-      className="relative overflow-hidden pt-16 md:pt-18 lg:pt-20 xl:pt-24 max-w-[1094px] w-full mx-auto px-4 sm:px-6 lg:px-8"
+      className="relative overflow-hidden pt-16 md:pt-18 lg:pt-20 xl:pt-24 max-w-[68.375rem] w-full mx-auto px-4 sm:px-6 lg:px-8"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
@@ -146,13 +135,13 @@ export const ValuePropositionSection = () => {
           variants={itemVariants}
         >
           <motion.h1
-            className="font-semibold md:font-bold lg:font-extrabold text-2xl sm:text-3xl md:text-4xl lg:text-[48px] xl:text-[64px] text-white leading-tight sm:leading-tight md:leading-tight lg:leading-tight"
+            className="font-semibold md:font-bold lg:font-extrabold text-2xl sm:text-3xl md:text-4xl lg:text-[3rem] xl:text-[4rem] text-white leading-tight sm:leading-tight md:leading-tight lg:leading-tight"
             variants={itemVariants}
           >
             Save time, work smarter, get answers.
           </motion.h1>
           <motion.p
-            className="font-normal text-sm sm:text-base md:text-lg lg:text-[20px] leading-6 sm:leading-7 md:leading-8 text-[#B1B1B1] max-w-[750px] mx-auto"
+            className="font-normal text-sm sm:text-base md:text-lg lg:text-[1.25rem] leading-6 sm:leading-7 md:leading-8 text-text-gray max-w-[46.875rem] mx-auto"
             variants={itemVariants}
           >
             Easily collect meaningful insights from real people using smart,
@@ -168,7 +157,7 @@ export const ValuePropositionSection = () => {
           {benefits.map((benefit, index) => (
             <motion.div
               key={index}
-              className="max-w-[299px] w-full flex flex-col gap-3 sm:gap-4 md:gap-[9px] items-center text-center cursor-pointer group"
+              className="max-w-[18.6875rem] w-full flex flex-col gap-3 sm:gap-4 md:gap-[0.5625rem] items-center text-center cursor-pointer group"
               variants={benefitVariants}
               whileHover="hover"
             >
@@ -179,11 +168,11 @@ export const ValuePropositionSection = () => {
                   width={88}
                   height={83}
                   priority
-                  className="w-16 h-16 sm:w-20 sm:h-20 md:w-[88px] md:h-[83px] object-contain"
+                  className="w-16 h-16 sm:w-20 sm:h-20 md:w-[5.5rem] md:h-[5.1875rem] object-contain"
                 />
               </motion.span>
               <motion.h3
-                className="text-white font-medium text-lg sm:text-xl md:text-2xl lg:text-[28px] xl:text-[32px] leading-6 sm:leading-8 md:leading-10 lg:leading-12 group-hover:text-white/90 transition-colors duration-300"
+                className="text-white font-medium text-lg sm:text-xl md:text-2xl lg:text-[1.75rem] xl:text-[2rem] leading-6 sm:leading-8 md:leading-10 lg:leading-12 group-hover:text-white/90 transition-colors duration-300"
                 initial={{ opacity: 0.8 }}
                 whileHover={{ opacity: 1 }}
               >
@@ -201,15 +190,9 @@ export const ValuePropositionSection = () => {
         >
           <Link href={"/"}>
             <Button
-              variant="outline"
-              size="sm"
-              className="text-white font-bold text-sm sm:text-base px-4 sm:px-6 min-h-[44px] sm:min-h-[48px] min-w-[180px] sm:min-w-[198px] rounded-[12px] bg-[rgba(255,255,255,0.06)] w-fit cursor-pointer transition-all duration-300 hover:bg-white/10 hover:text-white border-none backdrop-blur-sm hover:shadow-lg hover:shadow-white/10 flex items-center gap-2"
-            >
-              <span>Add a Survey now!</span>
-              <motion.div variants={arrowVariants}>
-                <ArrowRight className="h-4 w-4" />
-              </motion.div>
-            </Button>
+              text="Add a Survey now!"
+              className="text-white font-bold text-sm sm:text-base px-4 sm:px-6 min-h-[2.75rem] sm:min-h-[3rem] min-w-[11.25rem] sm:min-w-[12.375rem] rounded-xl bg-[rgba(255,255,255,0.06)] w-fit cursor-pointer transition-all duration-300 hover:bg-white/10 hover:text-white border-none backdrop-blur-sm hover:shadow-lg hover:shadow-white/10 flex items-center gap-2"
+            />
           </Link>
         </motion.div>
       </div>
