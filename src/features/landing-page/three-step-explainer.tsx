@@ -1,7 +1,7 @@
 "use client";
 
-import { StepCard } from "@/src/components/step-card";
-import { motion } from "framer-motion";
+import { StepCard } from "@/components/step-card";
+import { motion, type Variants } from "framer-motion";
 
 const steps = [
   {
@@ -30,7 +30,7 @@ const steps = [
   },
 ];
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -41,7 +41,7 @@ const containerVariants = {
   },
 };
 
-const headerVariants = {
+const headerVariants: Variants = {
   hidden: {
     opacity: 0,
     y: 40,
@@ -59,7 +59,7 @@ const headerVariants = {
 export const ThreeStepExplainerSection = () => {
   return (
     <motion.section
-      className="relative py-16 sm:py-24 md:py-32 lg:py-40 xl:py-[180px] px-4 sm:px-6 lg:px-8 overflow-hidden"
+      className="relative py-16 sm:py-24 md:py-32 lg:py-40 xl:py-[11.25rem] px-4 sm:px-6 lg:px-8 overflow-hidden"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
@@ -86,17 +86,17 @@ export const ThreeStepExplainerSection = () => {
       />
 
       <motion.div
-        className="relative z-10 flex flex-col gap-4 sm:gap-5 max-w-[639px] w-full mx-auto text-center mb-8 sm:mb-10 md:mb-12 lg:mb-[51px]"
+        className="relative z-10 flex flex-col gap-4 sm:gap-5 max-w-[39.9375rem] w-full mx-auto text-center mb-8 sm:mb-10 md:mb-12 lg:mb-[3.1875rem]"
         variants={headerVariants}
       >
         <motion.h1
-          className="font-semibold md:font-bold lg:font-extrabold text-2xl sm:text-3xl md:text-4xl lg:text-[48px] xl:text-[64px] text-white leading-tight sm:leading-tight md:leading-tight lg:leading-tight"
+          className="font-semibold md:font-bold lg:font-extrabold text-2xl sm:text-3xl md:text-4xl lg:text-[3rem] xl:text-[4rem] text-white leading-tight sm:leading-tight md:leading-tight lg:leading-tight"
           variants={headerVariants}
         >
           It&apos;s easier than taking a breath
         </motion.h1>
         <motion.p
-          className="font-normal text-sm sm:text-base md:text-lg lg:text-[20px] leading-6 sm:leading-7 md:leading-8 text-[#B1B1B1]"
+          className="font-normal text-sm sm:text-base md:text-lg lg:text-[1.25rem] leading-6 sm:leading-7 md:leading-8 text-text-gray"
           variants={headerVariants}
         >
           Start earning in just 3-steps

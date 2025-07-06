@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
@@ -14,7 +14,7 @@ interface StepCardProps {
   index: number;
 }
 
-const stepVariants = {
+const stepVariants: Variants = {
   hidden: {
     opacity: 0,
     y: 60,
@@ -31,7 +31,7 @@ const stepVariants = {
   },
 };
 
-const numberVariants = {
+const numberVariants: Variants = {
   hidden: {
     opacity: 0,
     scale: 0.5,
@@ -47,7 +47,7 @@ const numberVariants = {
   },
 };
 
-const contentVariants = {
+const contentVariants: Variants = {
   hidden: {
     opacity: 0,
     x: -20,
@@ -63,7 +63,7 @@ const contentVariants = {
   },
 };
 
-const mobileContentVariants = {
+const mobileContentVariants: Variants = {
   hidden: {
     opacity: 0,
     y: 20,
@@ -84,8 +84,8 @@ export const StepCard = ({ step, index }: StepCardProps) => {
 
   return (
     <motion.div
-      className={`relative w-full rounded-[12px] min-h-[400px] sm:min-h-[466px] text-white cursor-pointer overflow-hidden transition-all duration-400 ease-in-out ${
-        isHovered ? "md:max-w-[370px]" : "md:max-w-[256px]"
+      className={`relative w-full rounded-xl min-h-[25rem] sm:min-h-[29.125rem] text-white cursor-pointer overflow-hidden transition-all duration-400 ease-in-out ${
+        isHovered ? "md:max-w-[23.125rem]" : "md:max-w-[16rem]"
       }`}
       style={{
         backgroundImage: `linear-gradient(0deg, rgba(17, 14, 19, 0.8) 0%, rgba(17, 14, 19, 0.8) 100%), url('${step.image}')`,
@@ -102,19 +102,19 @@ export const StepCard = ({ step, index }: StepCardProps) => {
       onMouseLeave={() => setIsHovered(false)}
     >
       <motion.h1
-        className="text-[120px] sm:text-[140px] md:text-[160px] lg:text-[178px] font-extrabold mt-3 opacity-20 w-[60px] sm:w-[70px] md:w-[90px] h-[90px] sm:h-[110px] md:h-[136px] flex items-center justify-center overflow-hidden"
+        className="text-[7.5rem] sm:text-[8.75rem] md:text-[10rem] lg:text-[11.125rem] font-extrabold mt-3 opacity-20 w-[3.75rem] sm:w-[4.375rem] md:w-[5.625rem] h-[5.625rem] sm:h-[6.875rem] md:h-[8.5rem] flex items-center justify-center overflow-hidden"
         variants={numberVariants}
       >
         {step.id}
       </motion.h1>
 
       <motion.div
-        className="absolute top-[70px] sm:top-[89px] left-4 sm:left-6 md:max-w-[208px] min-h-[300px] sm:min-h-[353px] flex flex-col justify-between pr-4 sm:pr-0"
+        className="absolute top-[4.375rem] sm:top-[5.5625rem] left-4 sm:left-6 md:max-w-[13rem] min-h-[18.75rem] sm:min-h-[22.0625rem] flex flex-col justify-between pr-4 sm:pr-0"
         variants={contentVariants}
       >
         <div className="flex-1">
           <motion.h3
-            className="text-[28px] sm:text-[32px] md:text-[36px] leading-8 sm:leading-10 md:leading-11 font-extrabold max-md:max-w-[280px]"
+            className="text-[1.75rem] sm:text-[2rem] md:text-[2.25rem] leading-8 sm:leading-10 md:leading-11 font-extrabold max-md:max-w-[17.5rem]"
             variants={contentVariants}
           >
             {step.title}
@@ -130,7 +130,7 @@ export const StepCard = ({ step, index }: StepCardProps) => {
             viewport={{ once: false, amount: 0.3 }}
           >
             <motion.p
-              className="text-sm sm:text-base leading-5 sm:leading-6 font-normal tracking-[0.32px] text-[#A4A4A4] max-md:w-full"
+              className="text-sm sm:text-base leading-5 sm:leading-6 font-normal tracking-[0.02rem] text-text-gray-medium max-md:w-full"
               variants={mobileContentVariants}
             >
               {step.description}
@@ -149,7 +149,7 @@ export const StepCard = ({ step, index }: StepCardProps) => {
             transition={{ duration: 0.4, ease: "easeInOut" }}
           >
             <motion.p
-              className="text-sm sm:text-base leading-5 sm:leading-6 font-normal tracking-[0.32px] text-[#A4A4A4] max-md:w-full"
+              className="text-sm sm:text-base leading-5 sm:leading-6 font-normal tracking-[0.02rem] text-text-gray-medium max-md:w-full"
               initial={{ y: -10 }}
               animate={isHovered ? { y: 0 } : { y: -10 }}
               transition={{ duration: 0.3, delay: isHovered ? 0.1 : 0 }}
@@ -174,7 +174,7 @@ export const StepCard = ({ step, index }: StepCardProps) => {
           >
             <Link
               href={step.link}
-              className="flex items-center gap-2.5 min-h-[24px] text-sm sm:text-base hover:text-white/90 transition-colors duration-200 hover:underline"
+              className="flex items-center gap-2.5 min-h-[1.5rem] text-sm sm:text-base hover:text-white/90 transition-colors duration-200 hover:underline"
             >
               <span>Click here to start</span>
               <ArrowRight className="h-4 w-4 lg:h-5 lg:w-5" />
@@ -195,7 +195,7 @@ export const StepCard = ({ step, index }: StepCardProps) => {
           >
             <Link
               href={step.link}
-              className="flex items-center gap-2.5 min-h-[24px] text-sm sm:text-base hover:text-white/90 transition-colors duration-200 hover:underline"
+              className="flex items-center gap-2.5 min-h-[1.5rem] text-sm sm:text-base hover:text-white/90 transition-colors duration-200 hover:underline"
             >
               <span>Click here to start</span>
               <ArrowRight className="h-4 w-4 lg:h-5 lg:w-5" />
