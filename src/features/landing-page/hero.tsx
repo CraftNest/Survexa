@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import Button from "@/components/button";
 import Card from "@/components/card";
 
@@ -74,7 +75,9 @@ export default function Hero() {
               transition={{ duration: 0.8, delay: 0.6 }}
               className="flex flex-col sm:flex-row gap-4"
             >
-              <Button text="Start Earning" className="w-full sm:w-auto" />
+              <Link href="/choose-account-type" className="w-full sm:w-auto">
+                <Button text="Start Earning" className="w-full sm:w-auto" />
+              </Link>
               <button className="px-8 py-4 border-2 border-border-light rounded-xl font-bold text-base hover:bg-border-light hover:text-bg-dark transition-colors duration-300">
                 Learn More
               </button>
