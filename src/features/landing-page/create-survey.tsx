@@ -1,27 +1,29 @@
 import { ArrowRightIcon } from "lucide-react";
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { useRouter } from "next/navigation";
 
 export const CreateSurvey = () => {
-  const featureCards = [
+  const router = useRouter();
+  const [selected, setSelected] = useState<number | null>(null);
+
+  const options = [
     {
-      text: "Get quick customer Insights",
-      position: "top-0 left-[4.75rem]",
-      width: "w-[17.875rem]",
+      label: "Create Surveys & Get Insights",
+      route: "/create-account/surveys",
     },
     {
-      text: "Exportable Survey result",
-      position: "top-[16.6875rem] left-[17.9375rem]",
-      width: "w-[11.125rem]",
-    },
-    {
-      text: "Create custom survey template",
-      position: "top-[32.1875rem] left-0",
-      width: "w-[17.875rem]",
+      label: "Take Surveys & Earn Money",
+      route: "/create-account/respondent",
     },
   ];
+
+  const handleSelect = (index: number, route: string) => {
+    setSelected(index);
+    router.push(route);
+  };
 
   return (
     <div className="flex max-w-7xl w-full mx-auto items-center gap-16 relative">
@@ -36,14 +38,19 @@ export const CreateSurvey = () => {
             priority
           />
 
-          {featureCards.map((feature, index) => (
+          {options.map((option, index) => (
             <Card
-              key={`feature-${index}`}
-              className={`flex flex-col ${feature.width} items-center gap-[2.3125rem] p-5 absolute ${feature.position} bg-bg-card rounded-xl overflow-hidden`}
+              key={`option-${index}`}
+              className={`flex flex-col items-center gap-4 p-6 cursor-pointer transition-colors duration-200 rounded-xl ${
+                selected === index
+                  ? "border-2 border-blue-500 bg-blue-50"
+                  : "border border-transparent hover:border-blue-300"
+              }`}
+              onClick={() => handleSelect(index, option.route)}
             >
               <CardContent className="p-0">
-                <div className="relative self-stretch mt-[-0.0625rem] font-typography-paragraph-md-bold font-[number:var(--typography-paragraph-md-bold-font-weight)] text-text-light-alt text-[length:var(--typography-paragraph-md-bold-font-size)] tracking-[var(--typography-paragraph-md-bold-letter-spacing)] leading-[var(--typography-paragraph-md-bold-line-height)] [font-style:var(--typography-paragraph-md-bold-font-style)]">
-                  {feature.text}
+                <div className="text-center font-semibold text-lg">
+                  {option.label}
                 </div>
               </CardContent>
             </Card>
