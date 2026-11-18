@@ -1,76 +1,80 @@
 import { ArrowRightIcon } from "lucide-react";
-import React from "react";
-import Image from "next/image";
+import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
 export const CreateSurvey = () => {
-  const featureCards = [
-    {
-      text: "Get quick customer Insights",
-      position: "top-0 left-[4.75rem]",
-      width: "w-[17.875rem]",
-    },
-    {
-      text: "Exportable Survey result",
-      position: "top-[16.6875rem] left-[17.9375rem]",
-      width: "w-[11.125rem]",
-    },
-    {
-      text: "Create custom survey template",
-      position: "top-[32.1875rem] left-0",
-      width: "w-[17.875rem]",
-    },
-  ];
+  const router = useRouter();
+  const [selected, setSelected] = useState<"creator" | "taker" | null>(null);
+
+  const handleSelect = (type: "creator" | "taker") => {
+    setSelected(type);
+    if (type === "creator") {
+      router.push("/create-account/surveys");
+    } else {
+      router.push("/create-account/respondent");
+    }
+  };
 
   return (
-    <div className="flex max-w-7xl w-full mx-auto items-center gap-16 relative">
-      <div className="relative flex-1 grow h-[38.6875rem]">
-        <div className="relative w-[29.0625rem] h-[38.6875rem] left-[-0.1875rem]">
-          <Image
-            className="absolute w-[23.3125rem] h-[33.5rem] top-[2.6875rem] left-[2.4375rem]"
-            alt="Woman with laptop"
-            src="/woman-with-laptop.svg"
-            width={373}
-            height={536}
-            priority
-          />
-
-          {featureCards.map((feature, index) => (
-            <Card
-              key={`feature-${index}`}
-              className={`flex flex-col ${feature.width} items-center gap-[2.3125rem] p-5 absolute ${feature.position} bg-bg-card rounded-xl overflow-hidden`}
+    <div className="flex flex-col items-center justify-center min-h-screen bg-background p-8">
+      <h1 className="mb-8 text-4xl font-bold text-white">
+        Choose Your Account Type
+      </h1>
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 max-w-4xl w-full">
+        {/* Survey Creator Card */}
+        <Card
+          className={`cursor-pointer transition-all duration-200 ${
+            selected === "creator"
+              ? "border-2 border-primary bg-primary/10 ring-2 ring-primary"
+              : "border border-border-light hover:border-primary hover:ring-2 hover:ring-primary"
+          }`}
+          onClick={() => handleSelect("creator")}
+        >
+          <CardContent className="p-6 flex flex-col items-center justify-center space-y-4">
+            <h2 className="text-2xl font-semibold text-white">
+              Create Surveys & Get Insights
+            </h2>
+            <p className="text-center text-text-gray-alt">
+              Build custom surveys, collect data, and gain actionable insights.
+            </p>
+            <Button
+              variant="ghost"
+              className="mt-4 flex items-center gap-2 text-white hover:text-primary"
             >
-              <CardContent className="p-0">
-                <div className="relative self-stretch mt-[-0.0625rem] font-typography-paragraph-md-bold font-[number:var(--typography-paragraph-md-bold-font-weight)] text-text-light-alt text-[length:var(--typography-paragraph-md-bold-font-size)] tracking-[var(--typography-paragraph-md-bold-letter-spacing)] leading-[var(--typography-paragraph-md-bold-line-height)] [font-style:var(--typography-paragraph-md-bold-font-style)]">
-                  {feature.text}
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </div>
+              <span>Get Started</span>
+              <ArrowRightIcon className="w-4 h-4" />
+            </Button>
+          </CardContent>
+        </Card>
 
-      <div className="gap-16 inline-flex flex-col items-start relative flex-[0_0_auto]">
-        <div className="gap-8 inline-flex flex-col items-start relative flex-[0_0_auto]">
-          <h1 className="relative w-[44.125rem] mt-[-0.0625rem] [font-family:'Manrope',Helvetica] font-bold text-white text-[4rem] tracking-[0] leading-[5rem]">
-            Your single platform for all survey and research needs.
-          </h1>
-
-          <p className="relative w-[39.4375rem] [font-family:'Manrope',Helvetica] font-normal text-text-gray-alt text-xl tracking-[0] leading-8">
-            Survexa helps you ask the right questions and get powerful insights
-            to delight customers and build happier teams. Best part? You
-            don&#39;t pay platform fees - only reward survey participants
-            through our cost-efficient Starknet system.
-          </p>
-        </div>
-
-        <Button className="inline-flex items-center justify-center gap-2 px-4 py-3.5 relative flex-[0_0_auto] rounded-xl border border-solid border-border-light bg-transparent">
-          <span className="relative w-fit [font-family:'Manrope',Helvetica] font-bold text-white text-base tracking-[0] leading-[normal] whitespace-nowrap">
-            Create a Survey
-          </span>
-          <ArrowRightIcon className="w-4 h-4" />
-        </Button>
+        {/* Survey Taker Card */}
+        <Card
+          className={`cursor-pointer transition-all duration-200 ${
+            selected === "taker"
+              ? "border-2 border-primary bg-primary/10 ring-2 ring-primary"
+              : "border border-border-light hover:border-primary hover:ring-2 hover:ring-primary"
+          }`}
+          onClick={() => handleSelect("taker")}
+        >
+          <CardContent className="p-6 flex flex-col items-center justify-center space-y-4">
+            <h2 className="text-2xl font-semibold text-white">
+              Take Surveys & Earn Money
+            </h2>
+            <p className="text-center text-text-gray-alt">
+              Participate in surveys and earn rewards for your valuable
+              feedback.
+            </p>
+            <Button
+              variant="ghost"
+              className="mt-4 flex items-center gap-2 text-white hover:text-primary"
+            >
+              <span>Get Started</span>
+              <ArrowRightIcon className="w-4 h-4" />
+            </Button>
+          </CardContent>
+        </Card>
       </div>
     </div>
   );
